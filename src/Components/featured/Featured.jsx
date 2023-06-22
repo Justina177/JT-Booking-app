@@ -12,32 +12,32 @@ const Featured = () => {
       <div className="featuredItem">
         <img src={room1} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
-        <h1>Dublin</h1>
-        <h2>231 properties</h2>
+          <h1>Dublin</h1>
+          <h2>231 properties</h2>
         </div>
       </div>
 
       <div className="featuredItem">
         <img src={room2} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
-        <h1>Austin</h1>
-        <h2>172 properties</h2>
+          <h1>Austin</h1>
+          <h2>172 properties</h2>
         </div>
       </div>
 
       <div className="featuredItem">
         <img src={room3} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
-        <h1>Karu Site</h1>
-        <h2>343 properties</h2>
+          <h1>Karu Site</h1>
+          <h2>343 properties</h2>
         </div>
       </div>
 
       {/* <div className="featuredItem">
         <img src={room4} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
-        <h1>Maitama</h1>
-        <h2>286 properties</h2>
+          <h1>Maitama</h1>
+          <h2>286 properties</h2>
         </div>
       </div> */}
     </div>
