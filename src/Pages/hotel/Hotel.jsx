@@ -2,7 +2,9 @@ import './Hotel.css';
 
 const Hotel = () => {
     return (
-        <div className=""></div>
+        <div className="">
+            new hotel
+        </div>
     )
 }
 
