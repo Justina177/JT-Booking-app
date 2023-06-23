@@ -13,9 +13,11 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 
 const Header = ({ type }) => {
+    const [destination, setDestination] = useState("");
     const [openDate, setOpenDate] = useState(false);
     const [date, setDate] = useState([
         {
@@ -25,20 +27,25 @@ const Header = ({ type }) => {
         },
     ]);
     const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
-
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
-        return {
-            ...prev,
-            [name]: operation === "i" ? options[name] + 1 : options[name] - 1
-        };
+    const [options, setOptions] = useState({
+        adult: 1,
+        children: 0,
+        room: 1,
     });
-  };
+    const navigate = useNavigate ()
+
+    const handleOption = (name, operation) => {
+        setOptions((prev) => {
+            return {
+                ...prev,
+                [name]: operation === "i" ? options[name] + 1 : options[name] - 1
+            };
+        });
+    };
+
+    const handleSearch = () => {
+        navigate("/hotels", {state:{destination, date, options}})
+    }
 
   return (
     <div className="header">
@@ -82,6 +89,7 @@ const Header = ({ type }) => {
                                 type="text" 
                                 placeholder="Where are you going"
                                 className="headersearchInput"
+                                onChange={(e) => setDestination(e.target.value)}
                             />
                         </div>
                         <div className="headerSearchItem">
@@ -100,8 +108,14 @@ const Header = ({ type }) => {
                         </div>
                         <div className="headerSearchItem">
                             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
-                            <span onClick={() =>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.adult} adult . ${options.children} children .${options.room} room`}</span>
-                                {openOptions && <div className="options">
+                            <span 
+                            onClick={() =>setOpenOptions(!openOptions)} 
+                            className="headerSearchText">
+                                {`${options.adult} adult . ${options.children} 
+                                children .${options.room} room`}
+                            </span>
+                                {openOptions &&
+                                 <div className="options">
                                     <div className="optionItem">
                                         <span className="optionText">Adult</span>
                                         <div className="optionCounter">
@@ -151,7 +165,7 @@ const Header = ({ type }) => {
         }
                         </div>
                         <div className="headerSearchItem">
-                            <button className="headerBtn">search</button>
+                            <button className="headerBtn" onClick={handleSearch}>search</button>
                         </div>
                     </div>   
                 </>
