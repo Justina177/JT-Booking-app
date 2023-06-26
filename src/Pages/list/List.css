@@ -83,6 +83,11 @@
     
   }
 
+  .lsresult {
+    display: flex;
+    flex-direction: column;
+  }
+
 
   
 
