@@ -19,7 +19,7 @@ const Featured = () => {
         <img src={room1} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
           <h1>Germany</h1>
-          <h2>427 properties</h2>
+          <h2>{data[0]} properties</h2>
         </div>
       </div>
 
@@ -27,7 +27,7 @@ const Featured = () => {
         <img src={room2} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
           <h1>France</h1>
-          <h2>789 properties</h2>
+          <h2>{data[1]} properties</h2>
         </div>
       </div>
 
@@ -35,7 +35,7 @@ const Featured = () => {
         <img src={room3} alt="room1" className="featuredImg" />
         <div className="featuredTitles">
           <h1>London</h1>
-          <h2>123 properties</h2>
+          <h2>{data[2]} properties</h2>
         </div>
       </div>
       </>
