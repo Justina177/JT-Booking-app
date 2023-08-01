@@ -18,11 +18,8 @@ function App() {
         <Route path="/hotels/:id" element={<Hotel />} />
       </Routes>
     </BrowserRouter>
-      
-
-      
-  
   );
 }
 
 export default App;
+// 1.36.00
