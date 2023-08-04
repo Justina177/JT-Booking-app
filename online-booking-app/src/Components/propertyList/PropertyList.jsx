@@ -5,10 +5,28 @@ import room5 from '../../images/room5.jpg';
 import room6 from '../../images/room6.jpg';
 import room7 from '../../images/room7.jpg'
 import './PropertyList.css';
+import useFetch from "../../hooks/useFetch";
 
 const PropertyList = () => {
+
+    const { data, loading, error } = useFetch (
+        "/hotels/countByType"
+    );
+    const images = [
+        "room2",
+        "room4",
+        "room5",
+        "room6",
+        "room7"
+    ];
   return (
     <div className="pList">
+        {
+            loading ? (
+                "loading"
+            ) : (
+        <>
+        
         <div className="pListItem">
             <img src={room5} alt="" className="pListImg" />
             <div className="pListTitles">
@@ -16,6 +34,8 @@ const PropertyList = () => {
             <h2> 243 hotels</h2>
             </div>
         </div>
+        
+        
 
         <div className="pListItem">
             <img src={room2} alt="" className="pListImg" />
@@ -48,8 +68,10 @@ const PropertyList = () => {
             <h2> 1202 hotels</h2>
             </div>
         </div>
+        </>
+        )}
     </div>
-  )
+  );
 }
 
 export default PropertyList
