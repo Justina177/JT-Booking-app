@@ -6,7 +6,7 @@ import roomsRoute from "./routes/rooms.js";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import cookieParser from "cookie-parser";
-// import cors from "cors";
+import cors from "cors";
 
 
 const app = express();
@@ -34,6 +34,7 @@ app.get("/user", (req, res) => {
 })
 
 // middlewares
+app.use(cors())
 app.use(cookieParser());
 app.use(express.json());
 

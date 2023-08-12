@@ -9,15 +9,15 @@ import useFetch from "../../hooks/useFetch";
 
 const PropertyList = () => {
 
-    const { data, loading, error } = useFetch (
+    const { data, loading } = useFetch (
         "/hotels/countByType"
     );
     const images = [
-        "room2",
-        "room4",
-        "room5",
-        "room6",
-        "room7"
+        room2,
+        room4,
+        room5,
+        room6,
+        room7
     ];
   return (
     <div className="pList">
@@ -27,17 +27,24 @@ const PropertyList = () => {
             ) : (
         <>
         
-        <div className="pListItem">
-            <img src={room5} alt="" className="pListImg" />
+        {data &&
+        images.map((img, i) => (
+        <div className="pListItem" key={i}>
+            <img 
+            src={img} 
+            alt="" 
+            className="pListImg" 
+            />
             <div className="pListTitles">
-            <h1>Hotels</h1>
-            <h2> 243 hotels</h2>
+            <h1>{data[i]?.type}</h1>
+            <h2> {data[i]?.count} {data[i]?.errortype}</h2>
             </div>
         </div>
+        ))}
         
         
 
-        <div className="pListItem">
+        {/* <div className="pListItem">
             <img src={room2} alt="" className="pListImg" />
             <div className="pListTitles">
             <h1>Apartments</h1>
@@ -67,7 +74,7 @@ const PropertyList = () => {
             <h1>Cabins</h1>
             <h2> 1202 hotels</h2>
             </div>
-        </div>
+        </div> */}
         </>
         )}
     </div>
